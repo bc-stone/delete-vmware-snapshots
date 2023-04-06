@@ -10,7 +10,7 @@ from vmwc import VMWareClient
 from get_secrets import get_secrets
 from send_email import send_email
 
-max_snapshot_age = 90
+max_snapshot_age = <CHANGEME>  # in days
 filename = "vm_snapshots.txt"
 url = os.getenv("VAULT_URL")
 token = os.getenv("VMWARE_TOKEN")
