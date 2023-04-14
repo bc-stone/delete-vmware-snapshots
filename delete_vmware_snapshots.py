@@ -43,7 +43,7 @@ with open(filename, 'w') as f:
     with VMWareClient(HOST, USERNAME, PASSWORD) as vm_client:
         for vm in vm_client.get_virtual_machines():
             for snapshot in vm.get_snapshots():
-                if snapshot.timestamp.date() <= time_delta and not vm.name.startswith("replica"):
+                if snapshot.timestamp.date() <= time_delta and not vm.name.startswith("replica") and not 'Gold' in snapshot.name:
                     table.add_row(vm.name, snapshot.name, str(snapshot.timestamp.date()))
                     with contextlib.suppress(Exception):
                         snapshot.delete()
